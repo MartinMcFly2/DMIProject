@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App_Cursos.MainPage">
+
+    <StackLayout>
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="Registro de Empleados" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+
+        <Entry x:Name="txtIdEmp" IsVisible="False"/>
+        <Entry Placeholder="Nombre de Empleado" x:Name="txtNombre_de_Empleado" />
+        <Entry Placeholder="Dirección" x:Name="txtDirección" />
+        <Entry Placeholder="Teléfono" x:Name="txtTeléfono"  Keyboard="Numeric" />
+        <Entry Placeholder="Edad" x:Name="txtEdad" Keyboard="Numeric"/>
+        <Entry Placeholder="CURP" x:Name="txtCURP"/>
+        <Picker Title="Tipo de Empleado" x:Name="txtTipo_de_Empleado" />
+        <Button Text="Guardar" x:Name="btnRegistrar" Clicked="Registrar_Button_Clicked" />
+        <Button Text="Actualizar" x:Name="btnActualizar" Clicked="Button_Actualizar_Clicked" IsVisible="False"/>
+        <Button Text="Eliminar" x:Name="btnEliminar" Clicked="Borrar_Button_Clicked" IsVisible="False"/>
+        <ListView x:Name="lsEmpleados" ItemSelected="lstEmpleados_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="{Binding IDEmp}" Grid.Row="0" Grid.Column="0"/>
+                            <Label Text="{Binding Nombre_de_Empleado}" Grid.Row="0" Grid.Column="1"/>
+                            <Label Text="{Binding Dirección}" Grid.Row="0" Grid.Column="2"/>
+                            <Label Text="{Binding Teléfono}" Grid.Row="0" Grid.Column="3"/>
+                            <Label Text="{Binding Edad}" Grid.Row="0" Grid.Column="4"/>
+                            <Label Text="{Binding CURP}" Grid.Row="0" Grid.Column="5"/>
+                            <Label Text="{Binding Tipo_de_Empleado}" Grid.Row="0" Grid.Column="6"/>
+
+                        </Grid>
+
+                    </ViewCell>
+
+                </DataTemplate>
+
+            </ListView.ItemTemplate>
+
+        </ListView>
+
+    </StackLayout>
+
+</ContentPage>

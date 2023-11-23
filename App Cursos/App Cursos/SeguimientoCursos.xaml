@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App_Cursos.SeguimientoCursos">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Seguimiento de Cursos" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+
+            <Entry x:Name="txtIdSto" IsReadOnly="True" IsVisible="False"/>
+            <Picker x:Name="txtIdEmp" IsVisible="False" Title="Número de Empleado"
+                    ItemDisplayBinding="{Binding IDEmp}"/>
+
+            <Picker Title="Nombre de Empleado" x:Name="txtNombreEmp"
+                    ItemDisplayBinding="{Binding Nombre_de_Empleado}"/>
+            
+            <Picker Title="Nombre del Curso" x:Name="txtNombreCso"
+                    ItemDisplayBinding="{Binding Nombre_del_Curso}"/>
+            
+            <Entry Placeholder="Lugar del Curso" x:Name="txtLugarCurso"/>
+            
+            <DatePicker x:Name="txtFecha" Format="dd-MMM-yyyy"/>
+            
+            <TimePicker x:Name="txtHora"/>
+            
+            <Picker Title="Estatus" x:Name="txtEstatus" SelectedIndexChanged="txtEstatus_SelectedIndexChanged"/>
+            
+            <Entry Placeholder="Calificación" x:Name="txtCalificación" Keyboard="Numeric"/>
+            
+            <Button Text="Guardar Seguimiento" x:Name="btnGuardarSeg" Clicked="btnGuardarSeg_Clicked"/>
+
+            <Button Text="Actualizar" x:Name="btnActualizarSeg" Clicked="btnActualizarSeg_Clicked" IsVisible="False"/>
+
+            <Button Text="Eliminar" x:Name="btnEliminarSeg" Clicked="btnEliminarSeg_Clicked" IsVisible="False"/>
+
+            <ListView x:Name="lsSeguimiento" ItemSelected="lsSeguimiento_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding IDSto}" Grid.Row="0" Grid.Column="0"/>
+                                <Label Text="{Binding Nombre_de_Empleado_2}" Grid.Row="0" Grid.Column="1"/>
+                                <Label Text="{Binding Nombre_de_Curso_2}" Grid.Row="0" Grid.Column="2"/>
+                                <Label Text="{Binding Lugar_del_Curso}" Grid.Row="0" Grid.Column="3"/>
+                                <Label Text="{Binding Fecha}" Grid.Row="0" Grid.Column="4"/>
+                                <Label Text="{Binding Hora}" Grid.Row="0" Grid.Column="5"/>
+                                <Label Text="{Binding Estatus}" Grid.Row="0" Grid.Column="6"/>
+                                <Label Text="{Binding Calificación}" Grid.Row="0" Grid.Column="7"/>
+                            </Grid>
+
+
+                        </ViewCell>
+
+
+                    </DataTemplate>
+
+
+                </ListView.ItemTemplate>
+
+
+            </ListView>
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>
